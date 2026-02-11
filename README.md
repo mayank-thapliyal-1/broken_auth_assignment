@@ -102,9 +102,9 @@ After fixing the bugs, you should be able to run the following sequence successf
 - **JWT Debugging**: Use [jwt.io](https://jwt.io) to decode tokens and verify their contents.
 
 
-104: ## Submission
-105: 
-106: To submit your assignment:
-107: 1.  Upload your fixed code to a GitHub repository or zip the project.
-108: 2.  **Crucial**: Include the `success_flag` returned by the `/protected` endpoint in your submission comments or a text file.
-109: 3.  (Optional but recommended) A short video showing the successful run of all 4 tasks.
+## Submission
+
+To submit your assignment:
+1.  Upload your fixed code to a GitHub repository or zip the project.
+2.  **Crucial**: Include the `success_flag` returned by the `/protected` endpoint in your submission comments or a text file.
+3.  (Optional but recommended) A short video showing the successful run of all 4 tasks.
