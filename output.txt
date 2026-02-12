@@ -1,0 +1,24 @@
+ ---------------------LOGIN---------------------------------------------------
+
+
+ curl -X POST http://localhost:3000/auth/login \
+  -H "Content-Type: application/json" \
+  -d '{"email":"mayankthapliyal100@gmail.com","password":"password123"}' 
+{"message":"OTP sent","loginSessionId":"u2hlj9"}%                                                 
+
+-------------------------VERIFY-OTP-------------------------------------------
+
+curl -c cookies.txt -X POST http://localhost:3000/auth/verify-otp \
+  -H "Content-Type: application/json" \
+  -d '{"loginSessionId":"u2hlj9","otp":"199791"}'   
+{"message":"OTP verified","sessionId":"u2hlj9"}%  
+
+-------------------------------TOKEN-------------------------------------------
+
+curl -b cookies.txt -X POST http://localhost:3000/auth/token
+{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1heWFua3RoYXBsaXlhbDEwMEBnbWFpbC5jb20iLCJzZXNzaW9uSWQiOiJ1MmhsajkiLCJpYXQiOjE3NzA4NzM1MzYsImV4cCI6MTc3MDg3NDQzNn0.yKXulyFB0FnLxL9C-tn9YaT56jNauuuaBGIJGsVJciQ","expires_in":900}%                                                 
+
+-------------------------------PROTECTED----------------------------------------
+
+curl -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1heWFua3RoYXBsaXlhbDEwMEBnbWFpbC5jb20iLCJzZXNzaW9uSWQiOiJ1MmhsajkiLCJpYXQiOjE3NzA4NzM1MzYsImV4cCI6MTc3MDg3NDQzNn0.yKXulyFB0FnLxL9C-tn9YaT56jNauuuaBGIJGsVJciQ" http://localhost:3000/protected
+{"message":"Access granted","user":{"email":"mayankthapliyal100@gmail.com","sessionId":"u2hlj9","iat":1770873536,"exp":1770874436},"success_flag":"FLAG-bWF5YW5rdGhhcGxpeWFsMTAwQGdtYWlsLmNvbV9DT01QTEVURURfQVNTSUdOTUVOVA=="}%        

@@ -5,11 +5,10 @@ const generateToken = async (email) => {
   try {
     const secret = await getSecretFromDB();
 
-    return crypto
-      .createHmac("sha256", secret)
-      .update(email)
-      .digest("base64");
+    return crypto.createHmac("sha256", secret).update(email).digest("base64");
   } catch (error) {
+    console.error("Token generation failed:", error);
+    throw error;
     // THE BUG: Empty catch block.
     // Error is swallowed and undefined is returned.
   }
